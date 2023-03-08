@@ -38,8 +38,8 @@ public class SingleBooking extends Booking {
         return true;
     }
 
-    @Override
-    protected boolean containsPlayer(String playerId) {
+
+    public boolean containsPlayer(String playerId) {
         for (Player player : players) {
             if (player != null && player.getId().equals(playerId)) {
                 return true;

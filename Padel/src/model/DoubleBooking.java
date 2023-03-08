@@ -42,8 +42,8 @@ public class DoubleBooking extends Booking {
         return true;
     }
 
-    @Override
-    protected boolean containsPlayer(String playerId) {
+
+    public boolean containsPlayer(String playerId) {
         for (Player[] team : teams) {
             for (Player player : team) {
                 if (team != null && player.getId().equals(playerId)) {
