@@ -3,35 +3,35 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package controller;
+
 import db.PlayerDB;
 import model.PadelCourt;
 import model.Player;
 import view.InitMenuView;
+
 /**
  *
  * @author Bilo Alejandro Martins Gonzalez
  */
 public class InitMenuController {
-    
-private InitMenuView view = new InitMenuView(this);
-    
+
+    private InitMenuView view = new InitMenuView(this);
+
     public InitMenuController(InitMenuView view) {
         this.view = view;
     }
-    
-    
-    
-//    public void initApp(){
-//        boolean exit;
-//        do {
-//            exit = view.showLoginMenu();
-//        } while (!exit);
-//        
-//    }
-    
-    private void login(Player id, Player password){
+
+    public void initApp() {
+        boolean exit;
+        do {
+            exit = view.showLoginMenu();
+        } while (!exit);
     }
-    
+
+    private void login(Player id, Player password) {
+        Player 
+    }
+
     public static void main(String[] args) {
         Player player1 = new Player("luisf", "abc", "Luis Fdez", 2.5, 25.90);
         Player player2 = new Player("maria", "abc", "Maria Insua", 2.83, 70);
@@ -41,7 +41,4 @@ private InitMenuView view = new InitMenuView(this);
 
     }
 
-   
-    
-    
 }

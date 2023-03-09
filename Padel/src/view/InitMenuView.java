@@ -29,12 +29,21 @@ public class InitMenuView {
         System.out.println("Credenciais incorrectas.");
     }
 
-    public void showLoginMenu() {
+    /** @TODO Arreglar este metodo!*/
+    public boolean showLoginMenu() {
         System.out.println("Benvid@ ao xestor de reservas. Identificate para usar a aplicación.");
         System.out.println("Nome de usuario (en branco para saír):");
         String id;
         Scanner sc = new Scanner(System.in);
-        id = System.console().readPassword().toString();
+        String password="";
+        System.out.println("Contraseña:");
+        if (password != null) {
+            password = new String(System.console().readPassword());
+            id = System.console().readPassword().toString();
+            return false;
+        } else {
+            return true;
+        }
     }
 
 }

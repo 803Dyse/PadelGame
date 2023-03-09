@@ -42,7 +42,6 @@ public class DoubleBooking extends Booking {
         return true;
     }
 
-
     public boolean containsPlayer(String playerId) {
         for (Player[] team : teams) {
             for (Player player : team) {
