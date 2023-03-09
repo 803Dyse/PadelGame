@@ -1,0 +1,74 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package controller;
+
+import java.util.ArrayList;
+import java.util.Date;
+import model.PadelCourt;
+import view.SessionView;
+
+/**
+ *
+ * @author bmargon
+ */
+public class SessionController {
+
+    public SessionView view;
+
+    public SessionController(SessionView view) {
+        this.view = view;
+    }
+
+    /**
+     * Este método non recibe parámetros nin devolve nada. Obterá as reservas
+     * dende o día actual nas que o usuario estea inscrito e chama ao método
+     * "showSessionMenu" da vista para mostrar o menú da sesión. Para obter as
+     * reservas chamará ao método "findByUserAndDate" de BookingDB, pasándolle
+     * como parámetro a data actual (que se pode obter con
+     * "Calendar.getInstance()", poñendo a hora a cero para que aparezan tamén
+     * todas as reservas do día actual).
+     */
+    public void loadSession() {
+
+    }
+
+    /**
+     * Método que permite crear unha nova reserva, para unha data que se recibe
+     * como parámetro. O método non debe devolver nada, e o que fará e obter
+     * todas as pistas e as reservas para a data recibida, para invocar o método
+     * "selectCourtAndHour" da vista para que o usuario seleccione a pista e
+     * hora que quere reservar.
+     *
+     * @param date
+     */
+    public void createBooking(Date date) {
+
+    }
+
+    /**
+     * Este método recibe como parámetros a data dunha reserva, a hora e a
+     * pista, crea o obxecto correspondente para a reserva (dobre ou invidual,
+     * dependendo do tipo da pista recibida), engade o xogador da sesión á
+     * reserva e a garda. Para finalizar carga de novo o menú da sesión chamando
+     * ao método "loadSession".
+     *
+     * @param date
+     */
+    public void completeBooking(Date date) {
+        ArrayList<PadelCourt> getAllCourts;
+
+    }
+
+    /**
+     * Este método permite engadir o xogador da sesión a unha reserva, para unha
+     * data que se recibe como parámetro. De momento non implementamos esta
+     * funcionalidade, así que o método simplemente chamará a "loadSession" para
+     * cargar de novo o menú da sesión.
+     */
+    public void addPlayerToBooking() {
+        loadSession();
+    }
+
+}

@@ -65,16 +65,3 @@ public class BookingDB {
             PadelManagerDB.getBookings().add(booking);
         }
     }
-
-
-//    private static Date findByDate(Date date) {
-////        for (Booking booking : PadelManagerDB.getBookings()) {
-////            date.compareTo(booking.getDate());
-////        }
-////        return date;
-////    }
-//
-//    private static String findByUserAndDate(String id, Date date) {
-//        PadelManagerDB.getPlayers().get(id);
-//        return id;
-//    }

@@ -5,6 +5,9 @@
 package view;
 
 import controller.InitMenuController;
+import db.BookingDB;
+import db.PadelManagerDB;
+import java.util.Calendar;
 import java.util.Scanner;
 
 /**
@@ -25,25 +28,33 @@ public class InitMenuView {
         this.controller = controller;
     }
 
-    private void showInvalidUser() {
+    public void showInvalidUser() {
         System.out.println("Credenciais incorrectas.");
     }
 
-    /** @TODO Arreglar este metodo!*/
+    /**
+     * @TODO Arreglar este metodo!
+     */
     public boolean showLoginMenu() {
+        Scanner sc = new Scanner(System.in);
         System.out.println("Benvid@ ao xestor de reservas. Identificate para usar a aplicación.");
         System.out.println("Nome de usuario (en branco para saír):");
         String id;
-        Scanner sc = new Scanner(System.in);
-        String password="";
+        id = sc.nextLine();
+        String password;
+        password = sc.nextLine();
         System.out.println("Contraseña:");
-        if (password != null) {
-            password = new String(System.console().readPassword());
-            id = System.console().readPassword().toString();
-            return false;
-        } else {
-            return true;
+
+        if (!id.isBlank()) {
+            if (password != null) {
+                password = new String(System.console().readPassword());
+                id = System.console().readPassword().toString();
+                controller.login(id, password);
+            } else {
+                System.out.println("Exiting...");
+            }
         }
+        return true;
     }
 
 }
