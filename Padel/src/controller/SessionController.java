@@ -4,9 +4,14 @@
  */
 package controller;
 
+import db.BookingDB;
+import db.PadelCourtDB;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
+import model.Booking;
 import model.PadelCourt;
+import model.Player;
 import view.SessionView;
 
 /**
@@ -15,10 +20,11 @@ import view.SessionView;
  */
 public class SessionController {
 
-    public SessionView view;
+    private SessionView view;
+    private Player SessionPlayer;
 
-    public SessionController(SessionView view) {
-        this.view = view;
+    public SessionController(Player SessionPlayer) {
+        this.SessionPlayer = SessionPlayer;
     }
 
     /**
@@ -31,7 +37,10 @@ public class SessionController {
      * todas as reservas do día actual).
      */
     public void loadSession() {
-
+        Calendar calendar = Calendar.getInstance();
+        calendar.set(11, 0);
+        ArrayList<Booking> bookings = BookingDB.findByUserAndDate(SessionPlayer.getId(), calendar.getTime());
+        view.showSessionMenu(bookings);
     }
 
     /**
@@ -44,7 +53,9 @@ public class SessionController {
      * @param date
      */
     public void createBooking(Date date) {
-
+ArrayList<Booking> bookings = BookingDB.findByDate(date);
+ArrayList<PadelCourt> courts = PadelCourtDB.getAllCourts();
+view.selectCourtAndHour(date, courts, bookings);
     }
 
     /**
@@ -69,6 +80,10 @@ public class SessionController {
      */
     public void addPlayerToBooking() {
         loadSession();
+    }
+
+    public void addPlayerToBooking(Date bookingDate) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
 }
